@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bankStyle.css">
+    <title>DevKarriere Modul 3: Bank</title>
+
+    <script>
+        // Variables
+        var balanceNb = 0;
+        
+
+        // Functions
+        function mainFunction(){
+            var bankBalanceContainer = document.getElementById("bankBalance");
+            bankBalanceContainer.innerText = balanceNb;
+            conditionOnBalance();
+
+            // console.log("main function is ok")
+
+        }  
+
+        function increaseAmount(){
+            balanceNb += 100;
+            mainFunction();
+            // console.log("increase function is ok")
+        }
+        function decreaseAmount(){
+            balanceNb -= 100;
+            mainFunction();
+            // console.log("decrease function is ok")
+        }
+
+        function redFontColor(){
+            var bankBalanceContainer = document.getElementById("bankBalance");
+            bankBalanceContainer.classList.remove("blackFontColor");
+            bankBalanceContainer.classList.add("redFontColor");
+
+        }
+        function blackFontColor(){
+            var bankBalanceContainer = document.getElementById("bankBalance");
+            bankBalanceContainer.classList.remove("redFontColor");
+            bankBalanceContainer.classList.add("blackFontColor");
+            
+        }
+
+        function conditionOnBalance(){
+            if(balanceNb <= -100){
+                redFontColor();
+                document.getElementById("dButton").setAttribute("disabled", true);
+            }else{
+                blackFontColor();
+                document.getElementById("dButton").removeAttribute("disabled");
+                document.getElementById("dButton").setAttribute("enabled", true);
+            }
+            if(balanceNb >= 1000 ){
+                alert("Du kannst nicht mehr Geld einzahlen");
+                console.log("bigger that 1000", balanceNb);
+                //document.getElementById("iButton").removeAttribute("disabled");
+                document.getElementById("iButton").setAttribute("disabled", true);
+            }else{
+                document.getElementById("iButton").removeAttribute("disabled");
+                document.getElementById("iButton").setAttribute("enabled", true);
+
+            }
+        }
+        
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Bank System One</h1>
+            <p>Kontostand: </p>
+            <p id="bankBalance">0</p>
+            <span>Eur</span>
+            
+            <button id="dButton" onclick="decreaseAmount()"> 100 Eur Auszahlen </button>
+            <button id="iButton" onclick="increaseAmount()"> 100 Eur Einzahlen </button>
+
+
+        </div>
+    </main>
+</body>
+</html>

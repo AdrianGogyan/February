@@ -1,0 +1,40 @@
+:root{
+    --mainBlackColor: #464646;
+    --mainRedColor: #f31919;
+    --bankbackground: #b9b9b996;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main{
+    background-color: var(--bankbackground);
+    box-shadow: 0 0 80px rgba(187, 187, 187, 0.815);
+    border-radius: 8px;
+    width: 40%;
+    height: 40%;
+    margin-top: 5%;
+
+}
+
+button{
+    margin: 5%;
+    font-size: 18px;
+}
+
+#bankBalance{
+    font-size: 48px;
+}
+
+.redFontColor{
+    color: var(--mainRedColor);
+}
+
+.blackFontColor{
+    color: var(--mainBlackColor);
+}
+
